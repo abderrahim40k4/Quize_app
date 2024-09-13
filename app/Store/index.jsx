@@ -1,22 +1,24 @@
-import { create } from 'zustand'
+import { create } from 'zustand';
 
-const defulteConfige = {
-    numberOfQustions:10,
-    category:{
-        index:0,
-        name:'',
+const defaultConfig = {
+    numberOfQuestions: 10,
+    category: {
+        index: 0,
+        name: '',
     },
-    type:'',
-    stutas:'',
-    score:0,
-}
+    type: '',
+    status: '',
+    score: 0,
+};
 
-const useQuize = create((set) => ({
-  confige: {...defulteConfige},
-  addLevel: (level) => set((state) => ({ confige: {...state.confige, level:level}})),
-  addNumberOfQustions: (count) => set((state) => ({ confige: {...state.confige, numberOfQustions:count}})),
-  addLevel: (Level) => set((state) => ({ confige: {...state.confige, level:level}})),
-  addLevel: (Level) => set((state) => ({ confige: {...state.confige, level:level}})),
-  addLevel: (Level) => set((state) => ({ confige: {...state.confige, level:level}})),
-  
-}))
+const useQuiz = create((set) => ({
+    config: { ...defaultConfig },
+    addLevel: (level) => set((state) => ({ config: { ...state.config, level: level } })),
+    addNumberOfQuestions: (count) => set((state) => ({ config: { ...state.config, numberOfQuestions: count } })),
+    addCategory: (id, name) => set((state) => ({ config: { ...state.config, category: { id: id, name: name } } })),
+    addStatus: (status) => set((state) => ({ config: { ...state.config, status: status } })),
+    addType: (type) => set((state) => ({ config: { ...state.config, type: type } })),
+    addScore: (score) => set((state) => ({ config: { ...state.config, score: score } })),
+}));
+
+export default useQuiz;
