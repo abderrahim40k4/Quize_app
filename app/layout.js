@@ -3,6 +3,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import useQuiz from "./Store";
+import quiz from './@quiz/page'
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -18,7 +19,7 @@ const geistMono = localFont({
 
 export default function RootLayout({ children, quiz }) {
   const config = useQuiz(state => state.config )
-  let render = config.status === 'start' ? quiz: children;
+  let render = config.status === 'start' ? quiz : children;
   return (
     <html lang="en">
       <body
